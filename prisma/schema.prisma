@@ -1,0 +1,82 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+enum InvitationRole {
+  OWNER
+  EDITOR
+}
+
+enum MediaKind {
+  HERO
+  GROOM
+  BRIDE
+}
+
+model Invitation {
+  id          String             @id @default(cuid())
+  slug        String             @unique
+  groomName   String
+  brideName   String
+  eventAt     DateTime
+  venueName   String
+  venueAddress String
+  mapUrl      String?
+  message     String             @db.Text
+  palette     String             @default("champagne")
+  isPublished Boolean            @default(false)
+  ownerId     String
+  createdAt   DateTime           @default(now())
+  updatedAt   DateTime           @updatedAt
+  members     InvitationMember[]
+  media       InvitationMedia[]
+  schedule    ScheduleItem[]
+}
+
+model Owner {
+  id        String   @id @default(cuid())
+  userId    String   @unique
+  email     String   @unique
+  createdAt DateTime @default(now())
+}
+
+model InvitationMember {
+  id           String         @id @default(cuid())
+  invitationId String
+  userId       String
+  role         InvitationRole @default(EDITOR)
+  createdAt    DateTime       @default(now())
+  invitation   Invitation     @relation(fields: [invitationId], references: [id], onDelete: Cascade)
+
+  @@unique([invitationId, userId])
+  @@index([userId])
+}
+
+model InvitationMedia {
+  id           String     @id @default(cuid())
+  invitationId String
+  kind         MediaKind
+  storagePath  String
+  alt          String
+  sortOrder    Int        @default(0)
+  invitation   Invitation @relation(fields: [invitationId], references: [id], onDelete: Cascade)
+
+  @@index([invitationId, kind, sortOrder])
+}
+
+model ScheduleItem {
+  id           String     @id @default(cuid())
+  invitationId String
+  startsAt     String
+  title        String
+  detail       String?
+  sortOrder    Int
+  invitation   Invitation @relation(fields: [invitationId], references: [id], onDelete: Cascade)
+
+  @@unique([invitationId, sortOrder])
+}

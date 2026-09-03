@@ -1,36 +1,12 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Invitation Studio
 
-## Getting Started
+公開用の招待状は `https://your-domain.com/invite/[slug]` を使用します。ワイルドカードのカスタムドメインがなくても、Vercel 上で公開できます。`/admin` でログインし、下書きの作成・編集・公開を行います。
 
-First, run the development server:
+## Supabase の設定
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+1. Authentication でメール認証を有効にし、Site URL を Vercel のドメインに設定します。管理者アカウントは Supabase で作成してください。
+2. `.env` と Vercel に `DATABASE_URL` を追加します。Supabase の **Connect → ORMs → Prisma** から Prisma 用のプーラーURLをコピーしてください。ブラウザ用のキーはデータベースURLではありません。
+3. `invitation-media` という公開 Storage バケットを作成します。`taro-hanako/hero-1.webp` のようなパスにヒーロー画像をアップロードし、編集画面へ1行ずつその Storage パスを入力します。
+4. `DATABASE_URL` と `DIRECT_URL` の設定後に `npx prisma migrate deploy` を実行します。
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+`public/img` に入っているヒーロー画像が初期状態では使われるため、Storage への画像アップロードは必須ではありません。

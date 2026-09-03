@@ -1,26 +1,4 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
-}
+.editor-form select,.owner-actions input{width:100%;border:1px solid var(--line);border-radius:.5rem;padding:.65rem;background:#fff}.owner-list{display:grid;gap:1rem}.owner-list article{display:grid;gap:.5rem;padding:.75rem;border:1px solid var(--line);border-radius:.75rem}.owner-actions{display:flex;gap:.5rem;align-items:center}@media(max-width:700px){.owner-actions{align-items:stretch;flex-direction:column}}
+:root { --ink:#352c28;--paper:#fffaf4;--rose:#b8716a;--line:#e7d9cf } *{box-sizing:border-box} body{margin:0;color:var(--ink);background:var(--paper);font-family:Arial,Helvetica,sans-serif} a{color:inherit} button,input,textarea{font:inherit} button,.button{border:0;border-radius:999px;background:var(--rose);color:#fff;cursor:pointer;padding:.8rem 1.25rem;text-decoration:none;display:inline-block}.secondary,.quiet{background:transparent;color:var(--ink);border:1px solid var(--line)}.landing{min-height:100vh;padding:20vh max(2rem,9vw);background:linear-gradient(120deg,#f5e7d9,#fffaf4)}.landing h1{font:clamp(3rem,8vw,7rem)/.92 Georgia,serif;margin:.4rem 0 2rem}.landing p{max-width:35rem;font-size:1.1rem;line-height:1.7}.eyebrow{color:var(--rose);font-size:.72rem;font-weight:700;letter-spacing:.18em}.auth-page{min-height:100vh;padding:3rem}.auth-card,.editor-card{max-width:40rem;margin:3rem auto;background:#fff;border:1px solid var(--line);border-radius:1rem;padding:2rem}.auth-card form,.editor-form{display:grid;gap:1rem}.auth-card label,.editor-form label{display:grid;gap:.35rem;font-size:.86rem;font-weight:700}.auth-card input,.editor-form input,.editor-form textarea,.inline-form input{width:100%;border:1px solid var(--line);border-radius:.5rem;padding:.65rem;background:#fff}.error{color:#a42e27}.notice{color:#456f4d}.back-link{text-decoration:none}.admin-page{max-width:70rem;margin:0 auto;padding:2rem}.admin-page header{display:flex;justify-content:space-between;align-items:start;gap:1rem}.admin-page h1,.auth-card h1{font-family:Georgia,serif}.invitation-list{display:grid;gap:.75rem}.invitation-list a{display:grid;background:#fff;border:1px solid var(--line);border-radius:.75rem;padding:1rem;text-decoration:none}.invitation-list span,.schedule-list small{color:#786b63;font-size:.85rem}.editor-card{max-width:none}.editor-form{grid-template-columns:repeat(2,minmax(0,1fr))}.editor-form .full{grid-column:1/-1}.check{display:flex!important;align-items:center;gap:.5rem;font-weight:normal!important}.check input{width:auto!important}.inline-form{display:grid;grid-template-columns:8rem 1fr 1fr auto;gap:.5rem}.schedule-list{display:grid;gap:.8rem;padding:0;list-style:none}.schedule-list li{display:grid;grid-template-columns:5rem 1fr;gap:1rem}.schedule-list time{color:var(--rose);font-weight:700}.schedule-list span{display:grid;gap:.2rem}.invitation{min-height:100vh}.hero{height:min(48rem,100vh);position:relative;overflow:hidden;color:#fff}.hero-image{position:absolute;inset:0;background-position:center;background-size:cover;transition:opacity 1.2s ease}.hero-content{position:relative;z-index:1;height:100%;display:grid;align-content:center;justify-items:center;text-align:center;padding:2rem}.hero-content h1{display:grid;font:clamp(3rem,10vw,8rem)/.9 Georgia,serif;margin:.75rem 0}.hero-content h1 span{font-size:.5em;font-style:italic}.hero-content time{letter-spacing:.1em}.content{max-width:68rem;margin:0 auto;padding:6rem 2rem;text-align:center}.content h2{font:clamp(2rem,5vw,3.7rem)/1.1 Georgia,serif;margin:.5rem 0 1.5rem}.intro p:last-child{max-width:42rem;margin:auto;line-height:1.8}.split{display:grid;grid-template-columns:1fr 1fr;gap:5rem;text-align:left;background:#f5e7d9}.text-link{color:var(--rose);font-weight:700}footer{padding:2rem;text-align:center;background:#352c28;color:#fff;font-family:Georgia,serif}@media(max-width:700px){.auth-page,.admin-page{padding:1.25rem}.editor-form,.split,.inline-form{grid-template-columns:1fr}.editor-form .full{grid-column:auto}.split{gap:2.5rem}.content{padding:4rem 1.25rem}.landing{padding:15vh 2rem}}
