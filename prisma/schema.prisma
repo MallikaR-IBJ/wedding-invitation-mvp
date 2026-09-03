@@ -25,13 +25,15 @@ model Invitation {
   slug        String             @unique
   groomName   String
   brideName   String
+  groomMessage String             @default("この特別な日を、大切な皆様とともに迎えられることを心より嬉しく思います。素敵な一日にしましょう。") @db.Text
+  brideMessage String             @default("温かいご祝福の中で、新しい門出を迎えられることを幸せに思います。どうぞよろしくお願いいたします。") @db.Text
   eventAt     DateTime
   venueName   String
   venueAddress String
   mapUrl      String?
   message     String             @db.Text
   palette     String             @default("champagne")
-  isPublished Boolean            @default(false)
+  isPublished Boolean            @default(true)
   ownerId     String
   createdAt   DateTime           @default(now())
   updatedAt   DateTime           @updatedAt

@@ -168,9 +168,9 @@ export async function updateInvitation(slug: string, formData: FormData) {
       where: { id: invitation.id },
       data: {
         groomName: text(formData.get("groomName"), 80), brideName: text(formData.get("brideName"), 80), eventAt,
+        groomMessage: text(formData.get("groomMessage"), 500), brideMessage: text(formData.get("brideMessage"), 500),
         venueName: text(formData.get("venueName"), 120), venueAddress: text(formData.get("venueAddress"), 300),
         mapUrl: text(formData.get("mapUrl"), 1000) || null, message: text(formData.get("message"), 2000), palette,
-        isPublished: formData.get("isPublished") === "on",
       },
     }),
     prisma.invitationMedia.deleteMany({ where: { invitationId: invitation.id } }),
@@ -187,6 +187,37 @@ export async function updateInvitation(slug: string, formData: FormData) {
   }) : null;
   revalidatePath(`/invite/${slug}`);
   redirect(invitePath(slug, "notice", deletionResponse && !deletionResponse.ok ? "保存しましたが、削除した画像ファイルをストレージから消去できませんでした" : "保存しました"));
+}
+
+export async function toggleInvitationVisibility(slug: string) {
+  const user = await currentUser();
+  if (!user) redirect("/login");
+  const invitation = await prisma.invitation.findFirst({ where: user.isAdmin ? { slug } : { slug, ownerId: user.id }, select: { id: true, isPublished: true } });
+  if (!invitation) redirect("/admin");
+  const isPublished = !invitation.isPublished;
+  await prisma.invitation.update({ where: { id: invitation.id }, data: { isPublished } });
+  revalidatePath(`/invite/${slug}`);
+  revalidatePath("/admin");
+  redirect(invitePath(slug, "notice", isPublished ? "招待状の表示を開始しました" : "招待状の表示を停止しました"));
+}
+
+export async function deleteInvitation(invitationId: string) {
+  const user = await currentUser();
+  if (!user) redirect("/login");
+  const invitation = await prisma.invitation.findFirst({ where: user.isAdmin ? { id: invitationId } : { id: invitationId, ownerId: user.id }, include: { media: true } });
+  if (!invitation) redirect(adminPath("error", "招待状が見つかりません"));
+  const storagePaths = invitation.media.map(({ storagePath }) => storagePath).filter((path) => !defaultMediaPaths.has(path));
+  await prisma.invitation.delete({ where: { id: invitation.id } });
+  const referencedPaths = new Set(storagePaths.length ? (await prisma.invitationMedia.findMany({ where: { storagePath: { in: storagePaths } }, select: { storagePath: true } })).map(({ storagePath }) => storagePath) : []);
+  const deletedPaths = storagePaths.filter((path) => !referencedPaths.has(path));
+  const response = deletedPaths.length ? await fetch(`${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/${mediaBucket}`, {
+    method: "DELETE",
+    headers: { apikey: process.env.SUPABASE_SERVICE_ROLE_KEY!, Authorization: `Bearer ${process.env.SUPABASE_SERVICE_ROLE_KEY!}`, "Content-Type": "application/json" },
+    body: JSON.stringify({ prefixes: deletedPaths }),
+  }) : null;
+  revalidatePath("/admin");
+  revalidatePath(`/invite/${invitation.slug}`);
+  redirect(adminPath(response && !response.ok ? "error" : "notice", response && !response.ok ? "招待状は削除しましたが、画像ファイルをストレージから削除できませんでした" : "招待状を削除しました"));
 }
 
 export async function addScheduleItem(slug: string, formData: FormData) {

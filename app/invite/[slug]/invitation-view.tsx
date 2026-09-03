@@ -8,6 +8,8 @@ import { isScheduleIcon, scheduleIcons } from "@/lib/schedule-icons";
 type Invitation = {
   groomName: string;
   brideName: string;
+  groomMessage: string;
+  brideMessage: string;
   eventAt: string;
   venueName: string;
   venueAddress: string;
@@ -125,8 +127,8 @@ export function InvitationView({ invitation }: { invitation: Invitation }) {
 
       <section className="couple-section page-section" id="couple">
         <div className="couple-grid">
-          <article className="person-card" style={{ backgroundImage: `url('${groomImage}')` }}><div className="person-shade" /><div className="person-copy"><h2>{invitation.groomName}</h2><span>新郎</span><p>この特別な日を、大切な皆様とともに迎えられることを心より嬉しく思います。素敵な一日にしましょう。</p></div></article>
-          <article className="person-card" style={{ backgroundImage: `url('${brideImage}')` }}><div className="person-shade" /><div className="person-copy"><h2>{invitation.brideName}</h2><span>新婦</span><p>温かいご祝福の中で、新しい門出を迎えられることを幸せに思います。どうぞよろしくお願いいたします。</p></div></article>
+          <article className="person-card" style={{ backgroundImage: `url('${groomImage}')` }}><div className="person-shade" /><div className="person-copy"><h2>{invitation.groomName}</h2><span>新郎</span><p>{invitation.groomMessage}</p></div></article>
+          <article className="person-card" style={{ backgroundImage: `url('${brideImage}')` }}><div className="person-shade" /><div className="person-copy"><h2>{invitation.brideName}</h2><span>新婦</span><p>{invitation.brideMessage}</p></div></article>
         </div>
         <div className="marriage-note"><div className="heart"><Icon name="heart" /></div><p className="section-label">私たちは</p><h2 className="section-title">結婚します</h2><p>{invitation.message}</p><em>— {invitation.groomName} & {invitation.brideName} —</em></div>
       </section>

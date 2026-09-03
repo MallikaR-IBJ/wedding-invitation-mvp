@@ -8,7 +8,7 @@ type Section = "hero" | "sp" | "groom" | "bride";
 type Media = { storagePath: string; kind: "UPLOAD" | "HERO" | "SP" | "GROOM" | "BRIDE" };
 type ImageItem = { id: string; url: string; path?: string; file?: File };
 type Props = {
-  invitation: { groomName: string; brideName: string; eventAt: string; venueName: string; venueAddress: string; mapUrl: string | null; message: string; palette: string; isPublished: boolean; media: Media[] };
+  invitation: { groomName: string; brideName: string; groomMessage: string; brideMessage: string; eventAt: string; venueName: string; venueAddress: string; mapUrl: string | null; message: string; palette: string; media: Media[] };
   action: (formData: FormData) => void;
 };
 
@@ -103,6 +103,8 @@ export function InvitationEditor({ invitation, action }: Props) {
   return <form action={action} className="editor-form">
     <label>新郎のお名前<input name="groomName" defaultValue={invitation.groomName} required /></label>
     <label>新婦のお名前<input name="brideName" defaultValue={invitation.brideName} required /></label>
+    <label>新郎画像のメッセージ<textarea name="groomMessage" rows={3} maxLength={500} defaultValue={invitation.groomMessage} /></label>
+    <label>新婦画像のメッセージ<textarea name="brideMessage" rows={3} maxLength={500} defaultValue={invitation.brideMessage} /></label>
     <label>日時（日本時間）<input name="eventAt" type="datetime-local" defaultValue={localDate(invitation.eventAt)} required /></label>
     <label>会場<input name="venueName" defaultValue={invitation.venueName} required /></label>
     <label>住所<input name="venueAddress" defaultValue={invitation.venueAddress} /></label>
@@ -121,7 +123,6 @@ export function InvitationEditor({ invitation, action }: Props) {
     <ImageSection section="sp" title="ヒーロー画像（スマートフォン）" description="スマートフォンで表示する順番に並べてください。" initial={initialItems(invitation.media, "sp")} multiple sortable />
     <ImageSection section="groom" title="新郎画像" description="新しい画像を選ぶと現在の画像を置き換えます。" initial={initialItems(invitation.media, "groom")} />
     <ImageSection section="bride" title="新婦画像" description="新しい画像を選ぶと現在の画像を置き換えます。" initial={initialItems(invitation.media, "bride")} />
-    <label className="check full"><input name="isPublished" type="checkbox" defaultChecked={invitation.isPublished} /> この招待状を公開する</label>
     <button>変更を保存</button>
   </form>;
 }

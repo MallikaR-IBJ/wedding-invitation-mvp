@@ -80,6 +80,8 @@ export const InvitationScalarFieldEnum = {
   slug: 'slug',
   groomName: 'groomName',
   brideName: 'brideName',
+  groomMessage: 'groomMessage',
+  brideMessage: 'brideMessage',
   eventAt: 'eventAt',
   venueName: 'venueName',
   venueAddress: 'venueAddress',

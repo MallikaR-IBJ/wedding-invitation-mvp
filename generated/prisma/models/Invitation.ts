@@ -29,6 +29,8 @@ export type InvitationMinAggregateOutputType = {
   slug: string | null
   groomName: string | null
   brideName: string | null
+  groomMessage: string | null
+  brideMessage: string | null
   eventAt: Date | null
   venueName: string | null
   venueAddress: string | null
@@ -46,6 +48,8 @@ export type InvitationMaxAggregateOutputType = {
   slug: string | null
   groomName: string | null
   brideName: string | null
+  groomMessage: string | null
+  brideMessage: string | null
   eventAt: Date | null
   venueName: string | null
   venueAddress: string | null
@@ -63,6 +67,8 @@ export type InvitationCountAggregateOutputType = {
   slug: number
   groomName: number
   brideName: number
+  groomMessage: number
+  brideMessage: number
   eventAt: number
   venueName: number
   venueAddress: number
@@ -82,6 +88,8 @@ export type InvitationMinAggregateInputType = {
   slug?: true
   groomName?: true
   brideName?: true
+  groomMessage?: true
+  brideMessage?: true
   eventAt?: true
   venueName?: true
   venueAddress?: true
@@ -99,6 +107,8 @@ export type InvitationMaxAggregateInputType = {
   slug?: true
   groomName?: true
   brideName?: true
+  groomMessage?: true
+  brideMessage?: true
   eventAt?: true
   venueName?: true
   venueAddress?: true
@@ -116,6 +126,8 @@ export type InvitationCountAggregateInputType = {
   slug?: true
   groomName?: true
   brideName?: true
+  groomMessage?: true
+  brideMessage?: true
   eventAt?: true
   venueName?: true
   venueAddress?: true
@@ -206,6 +218,8 @@ export type InvitationGroupByOutputType = {
   slug: string
   groomName: string
   brideName: string
+  groomMessage: string
+  brideMessage: string
   eventAt: Date
   venueName: string
   venueAddress: string
@@ -244,6 +258,8 @@ export type InvitationWhereInput = {
   slug?: Prisma.StringFilter<"Invitation"> | string
   groomName?: Prisma.StringFilter<"Invitation"> | string
   brideName?: Prisma.StringFilter<"Invitation"> | string
+  groomMessage?: Prisma.StringFilter<"Invitation"> | string
+  brideMessage?: Prisma.StringFilter<"Invitation"> | string
   eventAt?: Prisma.DateTimeFilter<"Invitation"> | Date | string
   venueName?: Prisma.StringFilter<"Invitation"> | string
   venueAddress?: Prisma.StringFilter<"Invitation"> | string
@@ -264,6 +280,8 @@ export type InvitationOrderByWithRelationInput = {
   slug?: Prisma.SortOrder
   groomName?: Prisma.SortOrder
   brideName?: Prisma.SortOrder
+  groomMessage?: Prisma.SortOrder
+  brideMessage?: Prisma.SortOrder
   eventAt?: Prisma.SortOrder
   venueName?: Prisma.SortOrder
   venueAddress?: Prisma.SortOrder
@@ -287,6 +305,8 @@ export type InvitationWhereUniqueInput = Prisma.AtLeast<{
   NOT?: Prisma.InvitationWhereInput | Prisma.InvitationWhereInput[]
   groomName?: Prisma.StringFilter<"Invitation"> | string
   brideName?: Prisma.StringFilter<"Invitation"> | string
+  groomMessage?: Prisma.StringFilter<"Invitation"> | string
+  brideMessage?: Prisma.StringFilter<"Invitation"> | string
   eventAt?: Prisma.DateTimeFilter<"Invitation"> | Date | string
   venueName?: Prisma.StringFilter<"Invitation"> | string
   venueAddress?: Prisma.StringFilter<"Invitation"> | string
@@ -307,6 +327,8 @@ export type InvitationOrderByWithAggregationInput = {
   slug?: Prisma.SortOrder
   groomName?: Prisma.SortOrder
   brideName?: Prisma.SortOrder
+  groomMessage?: Prisma.SortOrder
+  brideMessage?: Prisma.SortOrder
   eventAt?: Prisma.SortOrder
   venueName?: Prisma.SortOrder
   venueAddress?: Prisma.SortOrder
@@ -330,6 +352,8 @@ export type InvitationScalarWhereWithAggregatesInput = {
   slug?: Prisma.StringWithAggregatesFilter<"Invitation"> | string
   groomName?: Prisma.StringWithAggregatesFilter<"Invitation"> | string
   brideName?: Prisma.StringWithAggregatesFilter<"Invitation"> | string
+  groomMessage?: Prisma.StringWithAggregatesFilter<"Invitation"> | string
+  brideMessage?: Prisma.StringWithAggregatesFilter<"Invitation"> | string
   eventAt?: Prisma.DateTimeWithAggregatesFilter<"Invitation"> | Date | string
   venueName?: Prisma.StringWithAggregatesFilter<"Invitation"> | string
   venueAddress?: Prisma.StringWithAggregatesFilter<"Invitation"> | string
@@ -347,6 +371,8 @@ export type InvitationCreateInput = {
   slug: string
   groomName: string
   brideName: string
+  groomMessage?: string
+  brideMessage?: string
   eventAt: Date | string
   venueName: string
   venueAddress: string
@@ -367,6 +393,8 @@ export type InvitationUncheckedCreateInput = {
   slug: string
   groomName: string
   brideName: string
+  groomMessage?: string
+  brideMessage?: string
   eventAt: Date | string
   venueName: string
   venueAddress: string
@@ -387,6 +415,8 @@ export type InvitationUpdateInput = {
   slug?: Prisma.StringFieldUpdateOperationsInput | string
   groomName?: Prisma.StringFieldUpdateOperationsInput | string
   brideName?: Prisma.StringFieldUpdateOperationsInput | string
+  groomMessage?: Prisma.StringFieldUpdateOperationsInput | string
+  brideMessage?: Prisma.StringFieldUpdateOperationsInput | string
   eventAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   venueName?: Prisma.StringFieldUpdateOperationsInput | string
   venueAddress?: Prisma.StringFieldUpdateOperationsInput | string
@@ -407,6 +437,8 @@ export type InvitationUncheckedUpdateInput = {
   slug?: Prisma.StringFieldUpdateOperationsInput | string
   groomName?: Prisma.StringFieldUpdateOperationsInput | string
   brideName?: Prisma.StringFieldUpdateOperationsInput | string
+  groomMessage?: Prisma.StringFieldUpdateOperationsInput | string
+  brideMessage?: Prisma.StringFieldUpdateOperationsInput | string
   eventAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   venueName?: Prisma.StringFieldUpdateOperationsInput | string
   venueAddress?: Prisma.StringFieldUpdateOperationsInput | string
@@ -427,6 +459,8 @@ export type InvitationCreateManyInput = {
   slug: string
   groomName: string
   brideName: string
+  groomMessage?: string
+  brideMessage?: string
   eventAt: Date | string
   venueName: string
   venueAddress: string
@@ -444,6 +478,8 @@ export type InvitationUpdateManyMutationInput = {
   slug?: Prisma.StringFieldUpdateOperationsInput | string
   groomName?: Prisma.StringFieldUpdateOperationsInput | string
   brideName?: Prisma.StringFieldUpdateOperationsInput | string
+  groomMessage?: Prisma.StringFieldUpdateOperationsInput | string
+  brideMessage?: Prisma.StringFieldUpdateOperationsInput | string
   eventAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   venueName?: Prisma.StringFieldUpdateOperationsInput | string
   venueAddress?: Prisma.StringFieldUpdateOperationsInput | string
@@ -461,6 +497,8 @@ export type InvitationUncheckedUpdateManyInput = {
   slug?: Prisma.StringFieldUpdateOperationsInput | string
   groomName?: Prisma.StringFieldUpdateOperationsInput | string
   brideName?: Prisma.StringFieldUpdateOperationsInput | string
+  groomMessage?: Prisma.StringFieldUpdateOperationsInput | string
+  brideMessage?: Prisma.StringFieldUpdateOperationsInput | string
   eventAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   venueName?: Prisma.StringFieldUpdateOperationsInput | string
   venueAddress?: Prisma.StringFieldUpdateOperationsInput | string
@@ -478,6 +516,8 @@ export type InvitationCountOrderByAggregateInput = {
   slug?: Prisma.SortOrder
   groomName?: Prisma.SortOrder
   brideName?: Prisma.SortOrder
+  groomMessage?: Prisma.SortOrder
+  brideMessage?: Prisma.SortOrder
   eventAt?: Prisma.SortOrder
   venueName?: Prisma.SortOrder
   venueAddress?: Prisma.SortOrder
@@ -495,6 +535,8 @@ export type InvitationMaxOrderByAggregateInput = {
   slug?: Prisma.SortOrder
   groomName?: Prisma.SortOrder
   brideName?: Prisma.SortOrder
+  groomMessage?: Prisma.SortOrder
+  brideMessage?: Prisma.SortOrder
   eventAt?: Prisma.SortOrder
   venueName?: Prisma.SortOrder
   venueAddress?: Prisma.SortOrder
@@ -512,6 +554,8 @@ export type InvitationMinOrderByAggregateInput = {
   slug?: Prisma.SortOrder
   groomName?: Prisma.SortOrder
   brideName?: Prisma.SortOrder
+  groomMessage?: Prisma.SortOrder
+  brideMessage?: Prisma.SortOrder
   eventAt?: Prisma.SortOrder
   venueName?: Prisma.SortOrder
   venueAddress?: Prisma.SortOrder
@@ -592,6 +636,8 @@ export type InvitationCreateWithoutMembersInput = {
   slug: string
   groomName: string
   brideName: string
+  groomMessage?: string
+  brideMessage?: string
   eventAt: Date | string
   venueName: string
   venueAddress: string
@@ -611,6 +657,8 @@ export type InvitationUncheckedCreateWithoutMembersInput = {
   slug: string
   groomName: string
   brideName: string
+  groomMessage?: string
+  brideMessage?: string
   eventAt: Date | string
   venueName: string
   venueAddress: string
@@ -646,6 +694,8 @@ export type InvitationUpdateWithoutMembersInput = {
   slug?: Prisma.StringFieldUpdateOperationsInput | string
   groomName?: Prisma.StringFieldUpdateOperationsInput | string
   brideName?: Prisma.StringFieldUpdateOperationsInput | string
+  groomMessage?: Prisma.StringFieldUpdateOperationsInput | string
+  brideMessage?: Prisma.StringFieldUpdateOperationsInput | string
   eventAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   venueName?: Prisma.StringFieldUpdateOperationsInput | string
   venueAddress?: Prisma.StringFieldUpdateOperationsInput | string
@@ -665,6 +715,8 @@ export type InvitationUncheckedUpdateWithoutMembersInput = {
   slug?: Prisma.StringFieldUpdateOperationsInput | string
   groomName?: Prisma.StringFieldUpdateOperationsInput | string
   brideName?: Prisma.StringFieldUpdateOperationsInput | string
+  groomMessage?: Prisma.StringFieldUpdateOperationsInput | string
+  brideMessage?: Prisma.StringFieldUpdateOperationsInput | string
   eventAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   venueName?: Prisma.StringFieldUpdateOperationsInput | string
   venueAddress?: Prisma.StringFieldUpdateOperationsInput | string
@@ -684,6 +736,8 @@ export type InvitationCreateWithoutMediaInput = {
   slug: string
   groomName: string
   brideName: string
+  groomMessage?: string
+  brideMessage?: string
   eventAt: Date | string
   venueName: string
   venueAddress: string
@@ -703,6 +757,8 @@ export type InvitationUncheckedCreateWithoutMediaInput = {
   slug: string
   groomName: string
   brideName: string
+  groomMessage?: string
+  brideMessage?: string
   eventAt: Date | string
   venueName: string
   venueAddress: string
@@ -738,6 +794,8 @@ export type InvitationUpdateWithoutMediaInput = {
   slug?: Prisma.StringFieldUpdateOperationsInput | string
   groomName?: Prisma.StringFieldUpdateOperationsInput | string
   brideName?: Prisma.StringFieldUpdateOperationsInput | string
+  groomMessage?: Prisma.StringFieldUpdateOperationsInput | string
+  brideMessage?: Prisma.StringFieldUpdateOperationsInput | string
   eventAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   venueName?: Prisma.StringFieldUpdateOperationsInput | string
   venueAddress?: Prisma.StringFieldUpdateOperationsInput | string
@@ -757,6 +815,8 @@ export type InvitationUncheckedUpdateWithoutMediaInput = {
   slug?: Prisma.StringFieldUpdateOperationsInput | string
   groomName?: Prisma.StringFieldUpdateOperationsInput | string
   brideName?: Prisma.StringFieldUpdateOperationsInput | string
+  groomMessage?: Prisma.StringFieldUpdateOperationsInput | string
+  brideMessage?: Prisma.StringFieldUpdateOperationsInput | string
   eventAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   venueName?: Prisma.StringFieldUpdateOperationsInput | string
   venueAddress?: Prisma.StringFieldUpdateOperationsInput | string
@@ -776,6 +836,8 @@ export type InvitationCreateWithoutScheduleInput = {
   slug: string
   groomName: string
   brideName: string
+  groomMessage?: string
+  brideMessage?: string
   eventAt: Date | string
   venueName: string
   venueAddress: string
@@ -795,6 +857,8 @@ export type InvitationUncheckedCreateWithoutScheduleInput = {
   slug: string
   groomName: string
   brideName: string
+  groomMessage?: string
+  brideMessage?: string
   eventAt: Date | string
   venueName: string
   venueAddress: string
@@ -830,6 +894,8 @@ export type InvitationUpdateWithoutScheduleInput = {
   slug?: Prisma.StringFieldUpdateOperationsInput | string
   groomName?: Prisma.StringFieldUpdateOperationsInput | string
   brideName?: Prisma.StringFieldUpdateOperationsInput | string
+  groomMessage?: Prisma.StringFieldUpdateOperationsInput | string
+  brideMessage?: Prisma.StringFieldUpdateOperationsInput | string
   eventAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   venueName?: Prisma.StringFieldUpdateOperationsInput | string
   venueAddress?: Prisma.StringFieldUpdateOperationsInput | string
@@ -849,6 +915,8 @@ export type InvitationUncheckedUpdateWithoutScheduleInput = {
   slug?: Prisma.StringFieldUpdateOperationsInput | string
   groomName?: Prisma.StringFieldUpdateOperationsInput | string
   brideName?: Prisma.StringFieldUpdateOperationsInput | string
+  groomMessage?: Prisma.StringFieldUpdateOperationsInput | string
+  brideMessage?: Prisma.StringFieldUpdateOperationsInput | string
   eventAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   venueName?: Prisma.StringFieldUpdateOperationsInput | string
   venueAddress?: Prisma.StringFieldUpdateOperationsInput | string
@@ -917,6 +985,8 @@ export type InvitationSelect<ExtArgs extends runtime.Types.Extensions.InternalAr
   slug?: boolean
   groomName?: boolean
   brideName?: boolean
+  groomMessage?: boolean
+  brideMessage?: boolean
   eventAt?: boolean
   venueName?: boolean
   venueAddress?: boolean
@@ -938,6 +1008,8 @@ export type InvitationSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Ex
   slug?: boolean
   groomName?: boolean
   brideName?: boolean
+  groomMessage?: boolean
+  brideMessage?: boolean
   eventAt?: boolean
   venueName?: boolean
   venueAddress?: boolean
@@ -955,6 +1027,8 @@ export type InvitationSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Ex
   slug?: boolean
   groomName?: boolean
   brideName?: boolean
+  groomMessage?: boolean
+  brideMessage?: boolean
   eventAt?: boolean
   venueName?: boolean
   venueAddress?: boolean
@@ -972,6 +1046,8 @@ export type InvitationSelectScalar = {
   slug?: boolean
   groomName?: boolean
   brideName?: boolean
+  groomMessage?: boolean
+  brideMessage?: boolean
   eventAt?: boolean
   venueName?: boolean
   venueAddress?: boolean
@@ -984,7 +1060,7 @@ export type InvitationSelectScalar = {
   updatedAt?: boolean
 }
 
-export type InvitationOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "slug" | "groomName" | "brideName" | "eventAt" | "venueName" | "venueAddress" | "mapUrl" | "message" | "palette" | "isPublished" | "ownerId" | "createdAt" | "updatedAt", ExtArgs["result"]["invitation"]>
+export type InvitationOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "slug" | "groomName" | "brideName" | "groomMessage" | "brideMessage" | "eventAt" | "venueName" | "venueAddress" | "mapUrl" | "message" | "palette" | "isPublished" | "ownerId" | "createdAt" | "updatedAt", ExtArgs["result"]["invitation"]>
 export type InvitationInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   members?: boolean | Prisma.Invitation$membersArgs<ExtArgs>
   media?: boolean | Prisma.Invitation$mediaArgs<ExtArgs>
@@ -1006,6 +1082,8 @@ export type $InvitationPayload<ExtArgs extends runtime.Types.Extensions.Internal
     slug: string
     groomName: string
     brideName: string
+    groomMessage: string
+    brideMessage: string
     eventAt: Date
     venueName: string
     venueAddress: string
@@ -1446,6 +1524,8 @@ export interface InvitationFieldRefs {
   readonly slug: Prisma.FieldRef<"Invitation", 'String'>
   readonly groomName: Prisma.FieldRef<"Invitation", 'String'>
   readonly brideName: Prisma.FieldRef<"Invitation", 'String'>
+  readonly groomMessage: Prisma.FieldRef<"Invitation", 'String'>
+  readonly brideMessage: Prisma.FieldRef<"Invitation", 'String'>
   readonly eventAt: Prisma.FieldRef<"Invitation", 'DateTime'>
   readonly venueName: Prisma.FieldRef<"Invitation", 'String'>
   readonly venueAddress: Prisma.FieldRef<"Invitation", 'String'>
