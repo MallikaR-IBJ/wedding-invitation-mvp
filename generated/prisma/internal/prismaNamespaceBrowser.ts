@@ -53,6 +53,7 @@ export const AnyNull = runtime.AnyNull
 export const ModelName = {
   Invitation: 'Invitation',
   Owner: 'Owner',
+  Admin: 'Admin',
   InvitationMember: 'InvitationMember',
   InvitationMedia: 'InvitationMedia',
   ScheduleItem: 'ScheduleItem'
@@ -104,6 +105,16 @@ export const OwnerScalarFieldEnum = {
 export type OwnerScalarFieldEnum = (typeof OwnerScalarFieldEnum)[keyof typeof OwnerScalarFieldEnum]
 
 
+export const AdminScalarFieldEnum = {
+  id: 'id',
+  userId: 'userId',
+  email: 'email',
+  createdAt: 'createdAt'
+} as const
+
+export type AdminScalarFieldEnum = (typeof AdminScalarFieldEnum)[keyof typeof AdminScalarFieldEnum]
+
+
 export const InvitationMemberScalarFieldEnum = {
   id: 'id',
   invitationId: 'invitationId',
@@ -133,6 +144,7 @@ export const ScheduleItemScalarFieldEnum = {
   startsAt: 'startsAt',
   title: 'title',
   detail: 'detail',
+  icon: 'icon',
   sortOrder: 'sortOrder'
 } as const
 

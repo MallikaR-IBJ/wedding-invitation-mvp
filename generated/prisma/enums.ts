@@ -18,7 +18,9 @@ export type InvitationRole = (typeof InvitationRole)[keyof typeof InvitationRole
 
 
 export const MediaKind = {
+  UPLOAD: 'UPLOAD',
   HERO: 'HERO',
+  SP: 'SP',
   GROOM: 'GROOM',
   BRIDE: 'BRIDE'
 } as const

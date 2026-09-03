@@ -1,0 +1,1 @@
+ALTER TYPE "MediaKind" ADD VALUE 'SP';

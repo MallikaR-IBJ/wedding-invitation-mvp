@@ -40,6 +40,7 @@ export type ScheduleItemMinAggregateOutputType = {
   startsAt: string | null
   title: string | null
   detail: string | null
+  icon: string | null
   sortOrder: number | null
 }
 
@@ -49,6 +50,7 @@ export type ScheduleItemMaxAggregateOutputType = {
   startsAt: string | null
   title: string | null
   detail: string | null
+  icon: string | null
   sortOrder: number | null
 }
 
@@ -58,6 +60,7 @@ export type ScheduleItemCountAggregateOutputType = {
   startsAt: number
   title: number
   detail: number
+  icon: number
   sortOrder: number
   _all: number
 }
@@ -77,6 +80,7 @@ export type ScheduleItemMinAggregateInputType = {
   startsAt?: true
   title?: true
   detail?: true
+  icon?: true
   sortOrder?: true
 }
 
@@ -86,6 +90,7 @@ export type ScheduleItemMaxAggregateInputType = {
   startsAt?: true
   title?: true
   detail?: true
+  icon?: true
   sortOrder?: true
 }
 
@@ -95,6 +100,7 @@ export type ScheduleItemCountAggregateInputType = {
   startsAt?: true
   title?: true
   detail?: true
+  icon?: true
   sortOrder?: true
   _all?: true
 }
@@ -191,6 +197,7 @@ export type ScheduleItemGroupByOutputType = {
   startsAt: string
   title: string
   detail: string | null
+  icon: string | null
   sortOrder: number
   _count: ScheduleItemCountAggregateOutputType | null
   _avg: ScheduleItemAvgAggregateOutputType | null
@@ -223,6 +230,7 @@ export type ScheduleItemWhereInput = {
   startsAt?: Prisma.StringFilter<"ScheduleItem"> | string
   title?: Prisma.StringFilter<"ScheduleItem"> | string
   detail?: Prisma.StringNullableFilter<"ScheduleItem"> | string | null
+  icon?: Prisma.StringNullableFilter<"ScheduleItem"> | string | null
   sortOrder?: Prisma.IntFilter<"ScheduleItem"> | number
   invitation?: Prisma.XOR<Prisma.InvitationScalarRelationFilter, Prisma.InvitationWhereInput>
 }
@@ -233,6 +241,7 @@ export type ScheduleItemOrderByWithRelationInput = {
   startsAt?: Prisma.SortOrder
   title?: Prisma.SortOrder
   detail?: Prisma.SortOrderInput | Prisma.SortOrder
+  icon?: Prisma.SortOrderInput | Prisma.SortOrder
   sortOrder?: Prisma.SortOrder
   invitation?: Prisma.InvitationOrderByWithRelationInput
 }
@@ -247,6 +256,7 @@ export type ScheduleItemWhereUniqueInput = Prisma.AtLeast<{
   startsAt?: Prisma.StringFilter<"ScheduleItem"> | string
   title?: Prisma.StringFilter<"ScheduleItem"> | string
   detail?: Prisma.StringNullableFilter<"ScheduleItem"> | string | null
+  icon?: Prisma.StringNullableFilter<"ScheduleItem"> | string | null
   sortOrder?: Prisma.IntFilter<"ScheduleItem"> | number
   invitation?: Prisma.XOR<Prisma.InvitationScalarRelationFilter, Prisma.InvitationWhereInput>
 }, "id" | "invitationId_sortOrder">
@@ -257,6 +267,7 @@ export type ScheduleItemOrderByWithAggregationInput = {
   startsAt?: Prisma.SortOrder
   title?: Prisma.SortOrder
   detail?: Prisma.SortOrderInput | Prisma.SortOrder
+  icon?: Prisma.SortOrderInput | Prisma.SortOrder
   sortOrder?: Prisma.SortOrder
   _count?: Prisma.ScheduleItemCountOrderByAggregateInput
   _avg?: Prisma.ScheduleItemAvgOrderByAggregateInput
@@ -274,6 +285,7 @@ export type ScheduleItemScalarWhereWithAggregatesInput = {
   startsAt?: Prisma.StringWithAggregatesFilter<"ScheduleItem"> | string
   title?: Prisma.StringWithAggregatesFilter<"ScheduleItem"> | string
   detail?: Prisma.StringNullableWithAggregatesFilter<"ScheduleItem"> | string | null
+  icon?: Prisma.StringNullableWithAggregatesFilter<"ScheduleItem"> | string | null
   sortOrder?: Prisma.IntWithAggregatesFilter<"ScheduleItem"> | number
 }
 
@@ -282,6 +294,7 @@ export type ScheduleItemCreateInput = {
   startsAt: string
   title: string
   detail?: string | null
+  icon?: string | null
   sortOrder: number
   invitation: Prisma.InvitationCreateNestedOneWithoutScheduleInput
 }
@@ -292,6 +305,7 @@ export type ScheduleItemUncheckedCreateInput = {
   startsAt: string
   title: string
   detail?: string | null
+  icon?: string | null
   sortOrder: number
 }
 
@@ -300,6 +314,7 @@ export type ScheduleItemUpdateInput = {
   startsAt?: Prisma.StringFieldUpdateOperationsInput | string
   title?: Prisma.StringFieldUpdateOperationsInput | string
   detail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  icon?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   sortOrder?: Prisma.IntFieldUpdateOperationsInput | number
   invitation?: Prisma.InvitationUpdateOneRequiredWithoutScheduleNestedInput
 }
@@ -310,6 +325,7 @@ export type ScheduleItemUncheckedUpdateInput = {
   startsAt?: Prisma.StringFieldUpdateOperationsInput | string
   title?: Prisma.StringFieldUpdateOperationsInput | string
   detail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  icon?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   sortOrder?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
@@ -319,6 +335,7 @@ export type ScheduleItemCreateManyInput = {
   startsAt: string
   title: string
   detail?: string | null
+  icon?: string | null
   sortOrder: number
 }
 
@@ -327,6 +344,7 @@ export type ScheduleItemUpdateManyMutationInput = {
   startsAt?: Prisma.StringFieldUpdateOperationsInput | string
   title?: Prisma.StringFieldUpdateOperationsInput | string
   detail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  icon?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   sortOrder?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
@@ -336,6 +354,7 @@ export type ScheduleItemUncheckedUpdateManyInput = {
   startsAt?: Prisma.StringFieldUpdateOperationsInput | string
   title?: Prisma.StringFieldUpdateOperationsInput | string
   detail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  icon?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   sortOrder?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
@@ -360,6 +379,7 @@ export type ScheduleItemCountOrderByAggregateInput = {
   startsAt?: Prisma.SortOrder
   title?: Prisma.SortOrder
   detail?: Prisma.SortOrder
+  icon?: Prisma.SortOrder
   sortOrder?: Prisma.SortOrder
 }
 
@@ -373,6 +393,7 @@ export type ScheduleItemMaxOrderByAggregateInput = {
   startsAt?: Prisma.SortOrder
   title?: Prisma.SortOrder
   detail?: Prisma.SortOrder
+  icon?: Prisma.SortOrder
   sortOrder?: Prisma.SortOrder
 }
 
@@ -382,6 +403,7 @@ export type ScheduleItemMinOrderByAggregateInput = {
   startsAt?: Prisma.SortOrder
   title?: Prisma.SortOrder
   detail?: Prisma.SortOrder
+  icon?: Prisma.SortOrder
   sortOrder?: Prisma.SortOrder
 }
 
@@ -436,6 +458,7 @@ export type ScheduleItemCreateWithoutInvitationInput = {
   startsAt: string
   title: string
   detail?: string | null
+  icon?: string | null
   sortOrder: number
 }
 
@@ -444,6 +467,7 @@ export type ScheduleItemUncheckedCreateWithoutInvitationInput = {
   startsAt: string
   title: string
   detail?: string | null
+  icon?: string | null
   sortOrder: number
 }
 
@@ -482,6 +506,7 @@ export type ScheduleItemScalarWhereInput = {
   startsAt?: Prisma.StringFilter<"ScheduleItem"> | string
   title?: Prisma.StringFilter<"ScheduleItem"> | string
   detail?: Prisma.StringNullableFilter<"ScheduleItem"> | string | null
+  icon?: Prisma.StringNullableFilter<"ScheduleItem"> | string | null
   sortOrder?: Prisma.IntFilter<"ScheduleItem"> | number
 }
 
@@ -490,6 +515,7 @@ export type ScheduleItemCreateManyInvitationInput = {
   startsAt: string
   title: string
   detail?: string | null
+  icon?: string | null
   sortOrder: number
 }
 
@@ -498,6 +524,7 @@ export type ScheduleItemUpdateWithoutInvitationInput = {
   startsAt?: Prisma.StringFieldUpdateOperationsInput | string
   title?: Prisma.StringFieldUpdateOperationsInput | string
   detail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  icon?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   sortOrder?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
@@ -506,6 +533,7 @@ export type ScheduleItemUncheckedUpdateWithoutInvitationInput = {
   startsAt?: Prisma.StringFieldUpdateOperationsInput | string
   title?: Prisma.StringFieldUpdateOperationsInput | string
   detail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  icon?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   sortOrder?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
@@ -514,6 +542,7 @@ export type ScheduleItemUncheckedUpdateManyWithoutInvitationInput = {
   startsAt?: Prisma.StringFieldUpdateOperationsInput | string
   title?: Prisma.StringFieldUpdateOperationsInput | string
   detail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  icon?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   sortOrder?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
@@ -525,6 +554,7 @@ export type ScheduleItemSelect<ExtArgs extends runtime.Types.Extensions.Internal
   startsAt?: boolean
   title?: boolean
   detail?: boolean
+  icon?: boolean
   sortOrder?: boolean
   invitation?: boolean | Prisma.InvitationDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["scheduleItem"]>
@@ -535,6 +565,7 @@ export type ScheduleItemSelectCreateManyAndReturn<ExtArgs extends runtime.Types.
   startsAt?: boolean
   title?: boolean
   detail?: boolean
+  icon?: boolean
   sortOrder?: boolean
   invitation?: boolean | Prisma.InvitationDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["scheduleItem"]>
@@ -545,6 +576,7 @@ export type ScheduleItemSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.
   startsAt?: boolean
   title?: boolean
   detail?: boolean
+  icon?: boolean
   sortOrder?: boolean
   invitation?: boolean | Prisma.InvitationDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["scheduleItem"]>
@@ -555,10 +587,11 @@ export type ScheduleItemSelectScalar = {
   startsAt?: boolean
   title?: boolean
   detail?: boolean
+  icon?: boolean
   sortOrder?: boolean
 }
 
-export type ScheduleItemOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "invitationId" | "startsAt" | "title" | "detail" | "sortOrder", ExtArgs["result"]["scheduleItem"]>
+export type ScheduleItemOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "invitationId" | "startsAt" | "title" | "detail" | "icon" | "sortOrder", ExtArgs["result"]["scheduleItem"]>
 export type ScheduleItemInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   invitation?: boolean | Prisma.InvitationDefaultArgs<ExtArgs>
 }
@@ -580,6 +613,7 @@ export type $ScheduleItemPayload<ExtArgs extends runtime.Types.Extensions.Intern
     startsAt: string
     title: string
     detail: string | null
+    icon: string | null
     sortOrder: number
   }, ExtArgs["result"]["scheduleItem"]>
   composites: {}
@@ -1010,6 +1044,7 @@ export interface ScheduleItemFieldRefs {
   readonly startsAt: Prisma.FieldRef<"ScheduleItem", 'String'>
   readonly title: Prisma.FieldRef<"ScheduleItem", 'String'>
   readonly detail: Prisma.FieldRef<"ScheduleItem", 'String'>
+  readonly icon: Prisma.FieldRef<"ScheduleItem", 'String'>
   readonly sortOrder: Prisma.FieldRef<"ScheduleItem", 'Int'>
 }
     

@@ -4,7 +4,6 @@ import { cookies } from "next/headers";
 import { prisma } from "@/lib/prisma";
 
 const cookieName = "wedding-invitation-session";
-export const adminEmail = "admin@yoriai.dev";
 
 type SupabaseUser = { id: string; email?: string };
 export type CurrentUser = SupabaseUser & { isAdmin: boolean };
@@ -19,7 +18,8 @@ export async function currentUser(): Promise<CurrentUser | null> {
   });
   const user = response.ok ? (await response.json() as SupabaseUser) : null;
   if (!user?.email) return null;
-  if (user.email === adminEmail) return { ...user, isAdmin: true };
+  const admin = await prisma.admin.findUnique({ where: { userId: user.id }, select: { id: true } });
+  if (admin) return { ...user, isAdmin: true };
   const owner = await prisma.owner.findUnique({ where: { userId: user.id }, select: { id: true } });
   return owner ? { ...user, isAdmin: false } : null;
 }

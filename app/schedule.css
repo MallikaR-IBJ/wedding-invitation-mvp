@@ -1,0 +1,49 @@
+.inline-form {
+  grid-template-columns: 8rem 1fr 11rem 1fr auto;
+  align-items: end;
+}
+
+.inline-form select {
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: 0.5rem;
+  padding: 0.65rem;
+  background: #fff;
+}
+
+.schedule-icon-field {
+  display: grid;
+  gap: 0.25rem;
+  color: #786b63;
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+
+.schedule-icon {
+  display: block;
+  width: 1.5rem;
+  height: 1.5rem;
+  color: var(--rose);
+}
+
+.schedule-list li {
+  grid-template-columns: 5rem 1.5rem 1fr;
+  align-items: center;
+}
+
+.timeline-icon .schedule-icon {
+  width: 1.35rem;
+  height: 1.35rem;
+  color: inherit;
+}
+
+@media (max-width: 700px) {
+  .inline-form {
+    grid-template-columns: 1fr;
+  }
+
+  .schedule-list li {
+    grid-template-columns: 4rem 1.5rem 1fr;
+    gap: 0.75rem;
+  }
+}

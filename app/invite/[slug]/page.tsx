@@ -4,5 +4,5 @@ import { InvitationView } from "./invitation-view";
 export default async function InvitationPage({ params }: PageProps<"/invite/[slug]">) {
   const { slug } = await params;
   const invitation = await publicInvitation(slug);
-  return <InvitationView invitation={{ ...invitation, eventAt: invitation.eventAt.toISOString() }} />;
+  return <InvitationView invitation={{ ...invitation, eventAt: invitation.eventAt.toISOString(), media: invitation.media.map(({ storagePath, kind, alt }) => ({ storagePath, alt, kind })) }} />;
 }

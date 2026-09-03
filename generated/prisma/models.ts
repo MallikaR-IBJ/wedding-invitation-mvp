@@ -10,6 +10,7 @@
  */
 export type * from './models/Invitation'
 export type * from './models/Owner'
+export type * from './models/Admin'
 export type * from './models/InvitationMember'
 export type * from './models/InvitationMedia'
 export type * from './models/ScheduleItem'

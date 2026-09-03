@@ -13,7 +13,9 @@ enum InvitationRole {
 }
 
 enum MediaKind {
+  UPLOAD
   HERO
+  SP
   GROOM
   BRIDE
 }
@@ -39,6 +41,13 @@ model Invitation {
 }
 
 model Owner {
+  id        String   @id @default(cuid())
+  userId    String   @unique
+  email     String   @unique
+  createdAt DateTime @default(now())
+}
+
+model Admin {
   id        String   @id @default(cuid())
   userId    String   @unique
   email     String   @unique
@@ -75,6 +84,7 @@ model ScheduleItem {
   startsAt     String
   title        String
   detail       String?
+  icon         String?
   sortOrder    Int
   invitation   Invitation @relation(fields: [invitationId], references: [id], onDelete: Cascade)
 
